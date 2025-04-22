@@ -1,5 +1,6 @@
 const pokemonList = document.getElementById('pokemonList');
-const loadMoreButton = document.getElementById('loadMoreButton');
+const loadNextButton = document.getElementById('loadNextButton');
+const loadPreviousButton = document.getElementById('loadPreviousButton');
 
 const maxRecords = 151;
 const limit = 12;
@@ -25,11 +26,14 @@ function loadPokemonItens(offset, limit) {
 
         pokemonList.innerHTML = newHtml
     })
+
+    nextButtonShown(offset)
+    previousButtonShown(offset)
 }
 
 loadPokemonItens(offset, limit)
 
-loadMoreButton.addEventListener('click', () => {
+loadNextButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNextPage = offset + limit
 
@@ -37,8 +41,30 @@ loadMoreButton.addEventListener('click', () => {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
 
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
+        loadNextButton.style.display = 'none'
     } else {
         loadPokemonItens(offset, limit)
     }
 })
+
+loadPreviousButton.addEventListener('click', () => {
+    offset -= limit
+    loadPokemonItens(offset, limit)
+})
+
+
+function nextButtonShown(offset) {
+    if (offset + limit >= maxRecords) {
+        loadNextButton.style.display = 'none'
+    } else {
+        loadNextButton.style.display = 'block'
+    }
+}
+
+function previousButtonShown(offset) {
+    if (offset <= 0) {
+        loadPreviousButton.style.display = 'none'
+    } else {
+        loadPreviousButton.style.display = 'block'
+    }
+}

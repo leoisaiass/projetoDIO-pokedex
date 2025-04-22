@@ -1,0 +1,30 @@
+/* Corpo no modo escuro */
+body.dark-theme {
+    background-color: #121212;
+}
+
+/* Estilos para o botão do tema */
+#toggleDarkMode {
+    background-color: #6a00d5;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#toggleDarkMode:hover {
+    background-color: #55009b;
+    transform: scale(1.05);
+}
+
+body.dark-theme .pagination button {
+    background-color: #ff6200e3;
+    color: #f0f0f0;
+}
+
+body.dark-theme .pagination button:hover {
+    background-color: #353535;
+    transform: scale(1.05);
+}

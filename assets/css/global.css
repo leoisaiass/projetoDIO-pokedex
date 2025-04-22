@@ -5,16 +5,27 @@
 }
 
 body {
-    background-color: #f6f8fc;
+    background-color: #fff;
+    color: #111;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.headerItens {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .content {
-    width: 100vw;
-    height: 100vh;
-    /* Adicionando uma medida relativa */
+    width: 100%;
+    /* altura mínima da tela */
+    min-height: 90vh;
     padding: 1rem;
-    background-color: #fff;
+    background-color: #454545;
+    color: #fff;
 }
+
 
 @media screen and (min-width:992px) {
     .content {
